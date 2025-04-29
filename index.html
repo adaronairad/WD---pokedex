@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pokédex</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-red-100 to-yellow-100 min-h-screen flex justify-center py-8 px-4">
+  <div class="w-full max-w-6xl bg-white rounded-lg shadow-xl p-8">
+    <h1 class="text-4xl font-extrabold text-center text-red-600 mb-6">Pokédex</h1>
+
+    <!-------------------------------------- Search and Filter ------------------------->
+    <div class="flex flex-col sm:flex-row gap-4 mb-6 justify-center">
+      <input type="text" id="search-input" placeholder="Search by name..." class="w-full sm:w-1/2 px-4 py-2 border rounded-lg shadow-sm" />
+      <select id="type-filter" class="w-full sm:w-1/3 px-4 py-2 border rounded-lg shadow-sm">
+        <option value="">Filter by type</option>
+      </select>
+    </div>
+
+    <!-------------------------------------- Pokémon Grid ------------------------------->
+    <div id="pokemon-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"></div>
+
+    <!-------------------------------------- Load More ----------------------------------->
+    <div class="text-center mt-8">
+      <button id="load-more" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full py-2.5 px-6 shadow-lg">
+        Load More
+      </button>
+    </div>
+  </div>
+
+  <!----------------------------------------- Modal --------------------------------------->
+  <div id="pokemon-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white rounded-xl shadow-2xl p-6 w-[90%] max-w-xl relative">
+      <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl font-bold">&times;</button>
+      <div class="text-center">
+        <img id="modal-image" src="" alt="Pokemon" class="w-40 h-40 mx-auto mb-4">
+        <h2 id="modal-title" class="text-3xl font-bold text-gray-800 mb-2 capitalize">Pokémon Name</h2>
+        <div id="modal-types" class="flex justify-center gap-2 mb-4"></div>
+      </div>
+      <div class="border-t pt-4">
+        <h3 class="text-lg font-semibold mb-2 text-gray-700">Base Stats</h3>
+        <ul id="modal-stats-list" class="space-y-2"></ul>
+      </div>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
